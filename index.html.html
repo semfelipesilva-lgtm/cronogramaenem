@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cronograma Estratégico ENEM — 24 Ciclos por Ciclos</title>
+<meta name="description" content="O método de 24 ciclos para organizar seus estudos, revisar no tempo certo e mirar nos 800+ pontos do ENEM. Por Prof. Felipe Laurentino.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#141468;
+    --navy-deep:#0b0b46;
+    --navy-mid:#1d1d80;
+    --white:#ffffff;
+    --offwhite:#f3f3ff;
+    --line:#c9c9ee;
+    --coral:#ff6b52;
+    --coral-dim:#e85a42;
+    --amber:#ffc93c;
+    --teal:#3ec7a8;
+    --text-navy:#14146b;
+    --text-muted:#5c5c96;
+    --text-onnavy:#e7e7ff;
+    --text-onnavy-dim:#a9a9d6;
+    --focus:#7fd9ff;
+    --radius:26px;
+    --radius-sm:14px;
+    --maxw:1120px;
+  }
+  *,*::before,*::after{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--navy);
+    color:var(--text-onnavy);
+    font-family:"Poppins",system-ui,sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:"Baloo 2",sans-serif;
+    font-weight:800;
+    letter-spacing:0.005em;
+    margin:0;
+    color:var(--white);
+  }
+  .on-white h1, .on-white h2, .on-white h3{color:var(--text-navy);}
+  .eyebrow{
+    font-family:"Baloo 2",sans-serif;
+    font-size:0.82rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--amber);
+    font-weight:700;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;position:relative;z-index:1;}
+  :focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:4px;}
+
+  /* ---------- DOODLES ---------- */
+  .doodle-layer{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0;}
+  .doodle{position:absolute;stroke:rgba(255,255,255,0.28);fill:none;stroke-width:2;}
+  .doodle.on-white-deco{stroke:rgba(20,20,107,0.14);}
+
+  /* ---------- NAV ---------- */
+  .nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(11,11,70,0.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(255,255,255,0.12);
+  }
+  .nav-inner{
+    max-width:var(--maxw);margin:0 auto;padding:14px 24px;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+  }
+  .brand{
+    display:flex;align-items:center;gap:10px;
+    font-family:"Baloo 2",sans-serif;font-weight:700;color:#fff;font-size:1rem;
+  }
+  .brand-dot{width:11px;height:11px;border-radius:50%;background:var(--coral);box-shadow:0 0 0 4px rgba(255,107,82,0.22);}
+  .nav-cta{
+    background:var(--coral);color:#fff;
+    font-family:"Baloo 2",sans-serif;font-weight:700;font-size:0.9rem;
+    padding:11px 20px;border-radius:999px;
+    text-decoration:none;white-space:nowrap;
+    transition:transform .15s ease, background .15s ease;
+  }
+  .nav-cta:hover{background:var(--coral-dim);transform:translateY(-1px);}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding:72px 0 60px;
+    overflow:hidden;
+  }
+  .hero-grid{
+    position:relative;z-index:1;
+    display:grid;grid-template-columns:1.1fr 0.9fr;gap:44px;align-items:center;
+  }
+  .hero h1{font-size:clamp(2.1rem,4vw,3.05rem);line-height:1.12;margin:14px 0 18px;}
+  .hero h1 em{
+    font-style:normal;color:var(--amber);
+    text-decoration:underline;text-decoration-color:rgba(255,201,60,0.4);
+    text-underline-offset:6px; text-decoration-thickness:4px;
+  }
+  .hero p.sub{
+    font-size:1.1rem;color:var(--text-onnavy-dim);max-width:54ch;margin-bottom:26px;
+  }
+  .author-tag{
+    display:inline-flex;align-items:center;gap:10px;
+    background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.16);
+    padding:8px 16px 8px 8px;border-radius:999px;margin-bottom:22px;font-size:0.85rem;color:var(--text-onnavy-dim);
+  }
+  .author-tag .avatar{
+    width:26px;height:26px;border-radius:50%;background:var(--amber);
+    display:flex;align-items:center;justify-content:center;font-family:"Baloo 2",sans-serif;font-weight:800;color:var(--navy-deep);font-size:0.75rem;
+  }
+  .price-row{display:flex;align-items:baseline;gap:12px;margin-bottom:22px;flex-wrap:wrap;}
+  .price-old{font-family:"Poppins",sans-serif;color:#8f8fcf;text-decoration:line-through;font-size:1rem;}
+  .price-new{font-family:"Baloo 2",sans-serif;font-weight:800;font-size:2.15rem;color:#fff;}
+  .price-inst{font-size:0.85rem;color:var(--text-onnavy-dim);}
+
+  .btn-cta{
+    display:inline-flex;align-items:center;gap:10px;
+    background:var(--coral);color:#fff;
+    font-family:"Baloo 2",sans-serif;font-weight:700;font-size:1.02rem;
+    padding:18px 30px;border-radius:16px;
+    text-decoration:none;
+    box-shadow:0 12px 28px -8px rgba(255,107,82,0.55);
+    transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+    animation:pulse-cta 2.6s ease-in-out infinite;
+  }
+  .btn-cta:hover{background:var(--coral-dim);transform:translateY(-2px);box-shadow:0 16px 32px -6px rgba(255,107,82,0.65);}
+  .btn-cta:active{transform:translateY(0);}
+  .btn-cta .arrow{transition:transform .18s ease;}
+  .btn-cta:hover .arrow{transform:translateX(4px);}
+  @keyframes pulse-cta{
+    0%,100%{box-shadow:0 12px 28px -8px rgba(255,107,82,0.55);}
+    50%{box-shadow:0 12px 36px -6px rgba(255,107,82,0.85);}
+  }
+  .hero-note{margin-top:14px;font-size:0.82rem;color:var(--text-onnavy-dim);display:flex;align-items:center;gap:8px;}
+  .hero-note svg{flex:none;}
+
+  /* cycle wheel card */
+  .wheel-card{
+    background:var(--white);border-radius:32px;
+    padding:28px 20px 22px;position:relative;
+    box-shadow:0 30px 60px -24px rgba(0,0,0,0.5);
+  }
+  .wheel-wrap{position:relative;display:flex;align-items:center;justify-content:center;}
+  .wheel-caption{
+    margin-top:10px;text-align:center;
+    font-family:"Poppins",sans-serif;font-weight:600;font-size:0.82rem;color:var(--text-muted);
+    letter-spacing:0.01em;
+  }
+  svg.wheel{width:min(320px,100%);height:auto;}
+  .tick{stroke:#dcdcf5;stroke-width:4;stroke-linecap:round;transform-origin:180px 180px;opacity:1;}
+  .tick.done{stroke:var(--coral);}
+  .wheel-center-num{font-family:"Baloo 2",sans-serif;font-weight:800;fill:var(--text-navy);}
+  .wheel-center-label{font-family:"Poppins",sans-serif;fill:var(--text-muted);font-size:11px;font-weight:600;letter-spacing:0.04em;}
+
+  @media (prefers-reduced-motion: no-preference){
+    .tick{transition:stroke .25s ease;}
+  }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:76px 0;position:relative;}
+  .section-head{max-width:640px;margin:0 auto 42px;text-align:center;}
+  .section-head h2{font-size:clamp(1.6rem,2.6vw,2.1rem);margin-top:10px;}
+  .section-head p{color:var(--text-onnavy-dim);margin-top:12px;font-size:1.05rem;}
+  .on-white .section-head p{color:var(--text-muted);}
+
+  /* ---------- PAIN ---------- */
+  .pain{background:var(--navy-deep);border-top:1px solid rgba(255,255,255,0.08);border-bottom:1px solid rgba(255,255,255,0.08);}
+  .pain-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+  .pain-card{
+    background:var(--white);
+    border-radius:var(--radius-sm);padding:22px 22px 22px 20px;
+    display:flex;gap:14px;align-items:flex-start;
+    opacity:0;transform:translateY(14px);
+    transition:opacity .5s ease, transform .5s ease;
+    box-shadow:0 14px 30px -18px rgba(0,0,0,0.4);
+  }
+  .pain-card.in-view{opacity:1;transform:translateY(0);}
+  .pain-x{
+    flex:none;width:32px;height:32px;border-radius:50%;
+    background:rgba(255,107,82,0.14);color:var(--coral);
+    display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1rem;
+  }
+  .pain-card p{margin:0;font-size:1rem;color:var(--text-navy);font-weight:500;}
+  .pain-verdict{
+    max-width:640px;margin:36px auto 0;text-align:center;
+    font-family:"Baloo 2",sans-serif;font-size:1.25rem;color:var(--white);
+    padding:22px 26px;border-left:4px solid var(--amber);
+    background:rgba(255,201,60,0.08);border-radius:0 var(--radius-sm) var(--radius-sm) 0;
+  }
+  .pain-verdict strong{color:var(--amber);}
+
+  /* ---------- SOLUTION ---------- */
+  .solution-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+  .feat-card{
+    background:var(--white);color:var(--text-navy);
+    border-radius:var(--radius-sm);padding:26px 24px;
+    position:relative;overflow:hidden;
+    box-shadow:0 18px 34px -20px rgba(0,0,0,0.5);
+    transition:transform .2s ease;
+  }
+  .feat-card:hover{transform:translateY(-4px);}
+  .feat-card::before{
+    content:attr(data-n);
+    position:absolute;top:14px;right:18px;
+    font-family:"Baloo 2",sans-serif;font-weight:700;font-size:0.8rem;
+    color:var(--line);
+  }
+  .feat-card h3{color:var(--text-navy);font-size:1.15rem;margin-bottom:8px;padding-right:34px;}
+  .feat-card p{margin:0;color:var(--text-muted);font-size:0.96rem;}
+  .feat-icon{
+    width:40px;height:40px;border-radius:12px;
+    background:var(--navy);color:var(--amber);
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:14px;
+  }
+
+  /* ---------- OFFER ---------- */
+  .offer{background:var(--navy-deep);}
+  .ticket{
+    max-width:560px;margin:0 auto;
+    background:var(--white);color:var(--text-navy);
+    border-radius:28px;padding:38px 34px 30px;
+    position:relative;
+    box-shadow:0 30px 60px -24px rgba(0,0,0,0.65);
+  }
+  .ticket::before,.ticket::after{
+    content:"";position:absolute;width:26px;height:26px;
+    background:var(--navy-deep);border-radius:50%;top:50%;transform:translateY(-50%);
+  }
+  .ticket::before{left:-13px;}
+  .ticket::after{right:-13px;}
+  .ticket-perf{border-top:2px dashed var(--line);margin:22px 0;}
+  .ticket h3{color:var(--text-navy);font-size:1.3rem;margin-bottom:16px;}
+  .ticket-list{list-style:none;margin:0 0 6px;padding:0;display:flex;flex-direction:column;gap:12px;}
+  .ticket-list li{display:flex;gap:10px;align-items:flex-start;font-size:0.98rem;color:var(--text-navy);font-weight:500;}
+  .ticket-list li .ico{flex:none;font-size:1.1rem;}
+  .ticket-price-row{display:flex;align-items:baseline;gap:12px;justify-content:center;margin:6px 0 4px;flex-wrap:wrap;}
+  .ticket .price-old{color:#9c9cc8;}
+  .ticket .price-new{color:var(--text-navy);}
+  .ticket-inst{text-align:center;color:var(--text-muted);font-size:0.85rem;margin-bottom:22px;}
+  .ticket .btn-cta{width:100%;justify-content:center;}
+  .secure-note{
+    display:flex;align-items:center;justify-content:center;gap:8px;
+    margin-top:16px;font-size:0.8rem;color:var(--text-muted);
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{padding:40px 0 120px;text-align:center;color:var(--text-onnavy-dim);font-size:0.85rem;}
+  footer .brand{justify-content:center;margin-bottom:10px;}
+
+  /* ---------- STICKY BAR ---------- */
+  .sticky-bar{
+    position:fixed;left:0;right:0;bottom:0;z-index:60;
+    background:rgba(11,11,70,0.96);backdrop-filter:blur(10px);
+    border-top:1px solid rgba(255,255,255,0.14);
+    padding:12px 18px;
+    display:flex;align-items:center;justify-content:space-between;gap:14px;
+    transform:translateY(120%);
+    transition:transform .35s ease;
+  }
+  .sticky-bar.show{transform:translateY(0);}
+  .sticky-bar .info{display:flex;flex-direction:column;line-height:1.25;}
+  .sticky-bar .info strong{font-family:"Baloo 2",sans-serif;font-size:1.05rem;color:#fff;}
+  .sticky-bar .info span{font-size:0.78rem;color:var(--text-onnavy-dim);}
+  .sticky-bar .btn-cta{padding:12px 20px;font-size:0.9rem;animation:none;white-space:nowrap;}
+
+  @media (max-width: 880px){
+    .hero-grid{grid-template-columns:1fr;}
+    .wheel-wrap{order:-1;}
+    .pain-grid, .solution-grid{grid-template-columns:1fr;}
+    section{padding:52px 0;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Navegação principal">
+  <div class="nav-inner">
+    <span class="brand"><span class="brand-dot" aria-hidden="true"></span>CRONOGRAMA ESTRATÉGICO ENEM</span>
+    <a class="nav-cta" href="https://pay.kiwify.com.br/oUkxuv2">Quero o meu — R$ 29,90</a>
+  </div>
+</nav>
+
+<main>
+  <!-- HERO -->
+  <header class="hero">
+    <div class="doodle-layer" aria-hidden="true">
+      <svg class="doodle" style="top:6%;left:4%;width:70px;" viewBox="0 0 60 60"><circle cx="20" cy="18" r="9"/><path d="M20 27v14M14 46h12M17 41h6"/></svg>
+      <svg class="doodle" style="top:64%;left:2%;width:60px;transform:rotate(-8deg);" viewBox="0 0 60 60"><path d="M10 50 L40 12"/><path d="M34 10h10v10"/></svg>
+      <svg class="doodle" style="top:10%;right:4%;width:64px;transform:rotate(10deg);" viewBox="0 0 60 60"><ellipse cx="30" cy="30" rx="24" ry="8"/><ellipse cx="30" cy="30" rx="8" ry="24"/><circle cx="30" cy="30" r="3"/></svg>
+      <svg class="doodle" style="top:70%;right:6%;width:54px;" viewBox="0 0 60 60"><path d="M30 6c8 6 8 16 0 24-8-8-8-18 0-24Z"/><path d="M20 44h20M30 30v14"/></svg>
+    </div>
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Método de organização por ciclos</p>
+        <h1>Pare de se sentir <em>perdido</em> com o acúmulo de matérias para o ENEM.</h1>
+        <p class="sub">Domine o edital com o Cronograma Estratégico ENEM: a estrutura exata em 24 ciclos para organizar seus estudos, fazer as revisões certas e buscar os 800+ pontos.</p>
+
+        <div class="author-tag">
+          <span class="avatar">FL</span>
+          Criado pelo Prof. Felipe Laurentino — docente do Novo Ensino Médio (SENAI) e engenheiro
+        </div>
+
+        <div class="price-row">
+          <span class="price-old">R$ 67,00</span>
+          <span class="price-new">R$ 29,90</span>
+          <span class="price-inst">ou até 5x de R$ 5,61 no cartão</span>
+        </div>
+
+        <a class="btn-cta" href="https://pay.kiwify.com.br/oUkxuv2" id="mainCta">
+          QUERO MEU CRONOGRAMA AGORA
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <p class="hero-note">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2 3 6v6c0 5 4 8.5 9 10 5-1.5 9-5 9-10V6l-9-4Z" stroke="#3ec7a8" stroke-width="2"/></svg>
+          Acesso liberado na hora, direto no e-mail de compra.
+        </p>
+      </div>
+
+      <div class="wheel-card">
+        <div class="wheel-wrap">
+          <svg class="wheel" viewBox="0 0 360 360" role="img" aria-label="Roda com 24 ciclos de estudo, representando o cronograma completo">
+            <circle cx="180" cy="180" r="150" fill="none" stroke="#eeeefb" stroke-width="2"/>
+            <g id="ticksGroup"></g>
+            <text x="180" y="172" text-anchor="middle" class="wheel-center-num" font-size="48">24</text>
+            <text x="180" y="200" text-anchor="middle" class="wheel-center-label">CICLOS DE ESTUDO</text>
+          </svg>
+        </div>
+        <p class="wheel-caption">do Ciclo 01 ao Ciclo 24 — dia a dia, sem adivinhação</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- DOR -->
+  <section class="pain" aria-labelledby="dor-title">
+    <div class="doodle-layer" aria-hidden="true">
+      <svg class="doodle" style="top:8%;left:3%;width:50px;" viewBox="0 0 60 60"><path d="M30 8v28M22 44h16"/><circle cx="30" cy="50" r="3"/></svg>
+      <svg class="doodle" style="bottom:6%;right:4%;width:56px;transform:rotate(-6deg);" viewBox="0 0 60 60"><rect x="10" y="14" width="40" height="30" rx="3"/><path d="M10 22h40M20 14v-4M40 14v-4"/></svg>
+    </div>
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Antes do método</p>
+        <h2 id="dor-title">Você se identifica com alguma dessas situações?</h2>
+      </div>
+
+      <div class="pain-grid">
+        <div class="pain-card"><span class="pain-x" aria-hidden="true">✕</span><p>Senta para estudar e perde 40 minutos tentando decidir qual matéria abrir.</p></div>
+        <div class="pain-card"><span class="pain-x" aria-hidden="true">✕</span><p>Sente que estuda, estuda, mas esquece o que leu há duas semanas.</p></div>
+        <div class="pain-card"><span class="pain-x" aria-hidden="true">✕</span><p>Chega no fim de semana exausto e percebe que resolveu pouquíssimas questões.</p></div>
+        <div class="pain-card"><span class="pain-x" aria-hidden="true">✕</span><p>Fica perdido com o excesso de aulas e não sabe o que é prioridade para a TRI.</p></div>
+      </div>
+
+      <p class="pain-verdict">Se você respondeu <strong>sim</strong> para qualquer uma dessas perguntas, o problema não é a sua inteligência. É a falta de um <strong>método de organização por ciclos</strong>.</p>
+    </div>
+  </section>
+
+  <!-- SOLUÇÃO -->
+  <section aria-labelledby="solucao-title">
+    <div class="doodle-layer" aria-hidden="true">
+      <svg class="doodle" style="top:4%;right:3%;width:60px;transform:rotate(12deg);" viewBox="0 0 60 60"><path d="M30 10l4 8 9 1-6.5 6 1.5 9-8-4.5-8 4.5 1.5-9-6.5-6 9-1z"/></svg>
+    </div>
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Por dentro do e-book</p>
+        <h2 id="solucao-title">O que você encontra no Cronograma</h2>
+        <p>Cada peça do método resolve um ponto específico da desorganização de estudo.</p>
+      </div>
+
+      <div class="solution-grid">
+        <article class="feat-card" data-n="01">
+          <div class="feat-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3>24 Ciclos mapeados</h3>
+          <p>Você sabe exatamente o que estudar em cada dia da semana, do Ciclo 01 ao Ciclo 24 — sem perder tempo decidindo.</p>
+        </article>
+
+        <article class="feat-card" data-n="02">
+          <div class="feat-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 8v5l3 2M21 12a9 9 0 1 1-3-6.7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Revisões programadas (24h e 7d)</h3>
+          <p>Fim da amnésia de conteúdo: você fixa o que estudou na memória de longo prazo com gatilhos de checagem no tempo certo.</p>
+        </article>
+
+        <article class="feat-card" data-n="03">
+          <div class="feat-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 4 3 8l9 4 9-4-9-4Z M3 8v8l9 4 9-4V8" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Orientação do professor</h3>
+          <p>Alertas pedagógicos em cada bloco, explicando as pegadinhas e os atalhos de cada matéria.</p>
+        </article>
+
+        <article class="feat-card" data-n="04">
+          <div class="feat-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 19V5m0 14h16M8 15l3-4 3 3 4-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Guia prático de TRI</h3>
+          <p>Aprenda a aplicar a Técnica das 3 Passadas para não perder tempo com questões difíceis na hora da prova.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- OFERTA -->
+  <section class="offer" aria-labelledby="oferta-title">
+    <div class="doodle-layer" aria-hidden="true">
+      <svg class="doodle" style="top:6%;left:4%;width:50px;" viewBox="0 0 60 60"><circle cx="30" cy="30" r="22"/><path d="M30 8v6M30 46v6M8 30h6M46 30h6"/></svg>
+      <svg class="doodle" style="bottom:8%;right:5%;width:56px;transform:rotate(-10deg);" viewBox="0 0 60 60"><path d="M12 40c6-10 14-16 18-24 2 8-2 16-8 24Z"/><path d="M14 42c8 4 18 4 26-2"/></svg>
+    </div>
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Oferta</p>
+        <h2 id="oferta-title">Tudo o que você precisa para organizar sua aprovação</h2>
+      </div>
+
+      <div class="ticket">
+        <h3>Você recebe agora:</h3>
+        <ul class="ticket-list">
+          <li><span class="ico" aria-hidden="true">📘</span><span>E-book Cronograma Completo ENEM — 24 Ciclos + Guias de Estudo</span></li>
+          <li><span class="ico" aria-hidden="true">📝</span><span>Checklist de Controle de Metas e Exercícios</span></li>
+          <li><span class="ico" aria-hidden="true">🛡️</span><span>Guia Prático de Gestão de Tempo e TRI no Dia da Prova</span></li>
+        </ul>
+
+        <div class="ticket-perf" role="presentation"></div>
+
+        <div class="ticket-price-row">
+          <span class="price-old">R$ 67,00</span>
+          <span class="price-new">R$ 29,90</span>
+        </div>
+        <p class="ticket-inst">ou até 5x de R$ 5,61 no cartão</p>
+
+        <a class="btn-cta" href="https://pay.kiwify.com.br/oUkxuv2">
+          GARANTIR MEU ACESSO COM DESCONTO
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+        <p class="secure-note">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="10" width="16" height="10" rx="2" stroke="#5c5c96" stroke-width="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3" stroke="#5c5c96" stroke-width="2"/></svg>
+          Pagamento processado com segurança pela Kiwify
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="brand"><span class="brand-dot" aria-hidden="true"></span>CRONOGRAMA ESTRATÉGICO ENEM</span>
+    <p>Material digital de apoio aos estudos, por Prof. Felipe Laurentino. Resultados dependem da dedicação individual aos estudos.</p>
+  </div>
+</footer>
+
+<!-- BARRA FIXA -->
+<div class="sticky-bar" id="stickyBar" role="region" aria-label="Oferta rápida">
+  <div class="info">
+    <strong>R$ 29,90</strong>
+    <span>Cronograma de 24 Ciclos · 5x de R$ 5,61</span>
+  </div>
+  <a class="btn-cta" href="https://pay.kiwify.com.br/oUkxuv2">Quero agora →</a>
+</div>
+
+<script>
+  // Monta a roda de 24 ciclos (ticks radiais)
+  (function buildWheel(){
+    const group = document.getElementById('ticksGroup');
+    const total = 24;
+    const cx = 180, cy = 180, rOuter = 150, rInner = 130;
+    for (let i = 0; i < total; i++){
+      const angle = (i / total) * 2 * Math.PI - Math.PI/2;
+      const x1 = cx + rInner * Math.cos(angle);
+      const y1 = cy + rInner * Math.sin(angle);
+      const x2 = cx + rOuter * Math.cos(angle);
+      const y2 = cy + rOuter * Math.sin(angle);
+      const line = document.createElementNS('http://www.w3.org/2000/svg','line');
+      line.setAttribute('x1', x1.toFixed(2));
+      line.setAttribute('y1', y1.toFixed(2));
+      line.setAttribute('x2', x2.toFixed(2));
+      line.setAttribute('y2', y2.toFixed(2));
+      line.setAttribute('class','tick');
+      line.dataset.index = i;
+      group.appendChild(line);
+    }
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const ticks = group.querySelectorAll('.tick');
+    if (reduceMotion){
+      ticks.forEach(t => t.classList.add('done'));
+      return;
+    }
+    let i = 0;
+    function step(){
+      if (i < ticks.length){
+        ticks[i].classList.add('done');
+        i++;
+        setTimeout(step, 55);
+      } else {
+        setTimeout(() => {
+          ticks.forEach(t => t.classList.remove('done'));
+          i = 0;
+          setTimeout(step, 400);
+        }, 2600);
+      }
+    }
+    setTimeout(step, 300);
+  })();
+
+  // Reveal dos cards de dor ao rolar
+  (function revealOnScroll(){
+    const cards = document.querySelectorAll('.pain-card');
+    if (!('IntersectionObserver' in window)){
+      cards.forEach(c => c.classList.add('in-view'));
+      return;
+    }
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    cards.forEach((c, idx) => {
+      c.style.transitionDelay = (idx * 90) + 'ms';
+      obs.observe(c);
+    });
+  })();
+
+  // Barra fixa aparece após o hero
+  (function stickyBar(){
+    const bar = document.getElementById('stickyBar');
+    const hero = document.querySelector('.hero');
+    if (!('IntersectionObserver' in window)) return;
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting){
+          bar.classList.add('show');
+        } else {
+          bar.classList.remove('show');
+        }
+      });
+    }, { threshold: 0 });
+    obs.observe(hero);
+  })();
+</script>
+
+</body>
+</html>
